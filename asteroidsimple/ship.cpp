@@ -51,10 +51,10 @@ void Ship::initializeGL(GLuint program) {
 
   const std::array indices{
                           0, 4, 5,
-                          0, 9, 5};
-                          /*0, 1, 3,
-                           1, 2, 3,
-                           0, 3, 4,
+                          0, 9, 5,
+                          0, 1, 3,
+                          1, 2, 3,
+                          0, 3, 4,
                            0, 4, 5,
                            9, 0, 5,
                            9, 5, 6,
@@ -68,7 +68,7 @@ void Ship::initializeGL(GLuint program) {
                            14, 16, 17,
                            // Thruster trails
                            18, 19, 20,
-                           21, 22, 23};*/
+                           21, 22, 23};
   // clang-format on
 
   // Generate VBO
@@ -161,6 +161,6 @@ void Ship::update(const GameData &gameData, float deltaTime) {
       gameData.m_state == State::Playing) {
     // Thrust in the forward vector
     glm::vec2 forward = glm::rotate(glm::vec2{0.0f, 1.0f}, m_rotation);
-    m_velocity += forward * deltaTime;
+    m_velocity += (forward * deltaTime) * 0.5f;
   }
 }

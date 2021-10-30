@@ -89,7 +89,7 @@ void OpenGLWindow::restart() {
 
   m_starLayers.initializeGL(m_starsProgram, 25);
   m_ship.initializeGL(m_objectsProgram);
-  m_asteroids.initializeGL(m_objectsProgram, 10);
+  m_asteroids.initializeGL(m_objectsProgram, 8);
   m_bullets.initializeGL(m_objectsProgram);
 }
 
@@ -201,8 +201,6 @@ void OpenGLWindow::checkCollisions() {
         }
       }
     }
-
-    
   }
 }
 
